@@ -1,0 +1,101 @@
+{
+    "navbar": {
+        "suplement": "SUPPLEMENT",
+        "laser": "LASER",
+        "reviews": "REVIEWS",
+        "journal": "JOURNAL",
+        "about": "ABOUT",
+        "help_support": "HELP & SUPPORT",
+        "activate": "ACTIVATE",
+        "account": "ACCOUNT",
+        "login": "LOGIN"
+    },
+    "main": {
+        "hero": {
+            "title": "THE FUTURE OF WELLNESS.",
+            "description": "The perfect balance of science, nature and technology. Prepare to look and feel your absolute best.",
+            "suplement": "SUPPLEMENT",
+            "laser": "LASER"
+        },
+        "discover": {
+            "supplement": {
+                "title": "Supplement.",
+                "subtitle1": "Nine powerful ingredients.",
+                "subtitle2": "One ultimate formula.",
+                "discover": "Discover",
+                "buy": "Buy"
+            },
+            "laser": {
+                "title": "Laser.",
+                "subtitle1": "Ultimate skin regeneration.",
+                "subtitle2": "A new dawn for beauty.",
+                "discover": "Discover",
+                "buy": "Buy"
+            }
+        },
+        "banner": {
+            "title": "THE QUEST FOR BETTER.",
+            "description": "At LYMA, we're always searching for the perfect balance of science, nature and technology. Every LYMA product has been designed to work together. We know that when we discover the best, you'll discover yours."
+        },
+        "founder": {
+            "title": "Meet our founder",
+            "description": "Lucy's story is one you really need to read; it changed an industry forever.",
+            "read_more": "READ MORE"
+        }
+    },
+    "auth": {
+        "signin": {
+            "title": "Sign In",
+            "subtitle": "Enter your email below to login to your account",
+            "email": "Email",
+            "password": "Password",
+            "forgot_password": "Forgot your password?",
+            "submit": "Sign In",
+            "no_account": "Don't have an account?",
+            "signup_link": "Sign up",
+            "github_login": "Login with Github",
+            "google_login": "Login with Google"
+        },
+        "signup": {
+            "title": "Create your account",
+            "subtitle": "Enter your details below to create your account",
+            "name": "Full Name",
+            "email": "Email",
+            "password": "Password",
+            "submit": "Register",
+            "has_account": "Already have an account?",
+            "signin_link": "Sign in",
+            "github_signup": "Sign up with Github",
+            "google_signup": "Sign up with Google"
+        }
+    },
+    "dashboard": {
+        "title": "Dashboard",
+        "welcome": "Welcome to your dashboard"
+    },
+    "footer": {
+        "products": "Products",
+        "company": "Company",
+        "support": "Support",
+        "newsletter": "NEWSLETTER",
+        "newsletter_description": "Subscribe to our newsletter.",
+        "newsletter_placeholder": "ETMA newsletter",
+        "sign_up": "SIGN UP",
+        "supplement": "Supplement",
+        "laser": "Laser",
+        "about": "About",
+        "reviews": "Reviews",
+        "journal": "Journal",
+        "help_support": "Help & Support",
+        "activate": "Activate"
+    },
+    "common": {
+        "loading": "Loading...",
+        "error": "An error occurred",
+        "success": "Success",
+        "cancel": "Cancel",
+        "save": "Save",
+        "delete": "Delete",
+        "edit": "Edit"
+    }
+}
