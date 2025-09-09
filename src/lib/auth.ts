@@ -5,8 +5,6 @@ import type { JWT } from "next-auth/jwt"
 import { prisma } from "../../prisma/prisma-client"
 import CredentialsProvider from "next-auth/providers/credentials"
 import bcrypt from "bcryptjs"
-import { UserProps } from "@/features/interface/user-props"
-import { NextAuthOptions } from "next-auth"
 
 declare module "next-auth" {
     interface Session {
@@ -19,7 +17,7 @@ declare module "next-auth" {
     }
 }
 
-export const authOptions: NextAuthOptions = {
+export const authOptions = {
     secret: process.env.NEXTAUTH_SECRET,
 
     providers: [
@@ -77,7 +75,9 @@ export const authOptions: NextAuthOptions = {
             return session
         },
         async redirect({ url, baseUrl }: { url: string, baseUrl: string }) {
+            // Allows relative callback URLs
             if (url.startsWith("/")) return `${baseUrl}${url}`
+            // Allows callback URLs on the same origin
             else if (new URL(url).origin === baseUrl) return url
             return baseUrl
         }

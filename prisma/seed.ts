@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client';
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -6,39 +6,43 @@ async function up() {
     await prisma.user.createMany({
         data: [
             {
-                name: 'Murad',
-                email: 'murad123@gmail.com',
-                password: 'ra66mi66n66',
-                role: 'User'
+                name: "John Doe",
+                email: "john.doe@example.com",
+                password: "password",
+                role: "user"
             },
             {
-                name: 'Ali',
-                email: 'ali111@gmail.com',
-                password: 'ra66mi66n66',
-                role: 'Admin'
+                name: "Jane Doe",
+                email: "jane.doe@example.com",
+                password: "password",
+                role: "user"
+            },
+            {
+                name: "Jahangir",
+                email: "jeka@mail.com",
+                password: "password",
+                role: "user"
             }
-        ]
-    });
+        ],
+
+        skipDuplicates: true
+    })
 }
+
 
 async function main() {
     try {
-        console.log('Starting seed...');
         await up();
-        console.log('Seed completed successfully!');
+        console.log("Users seeded successfully!");
     } catch (error) {
-        console.error('Error during seed:', error);
-        throw error;
-    } finally {
-        await prisma.$disconnect();
+        console.error("Error seeding users:", error);
     }
 }
 
-main()
-    .catch((e) => {
-        console.error(e);
-        process.exit(1);
-    })
-    .finally(async () => {
-        await prisma.$disconnect();
-    });
+main().catch(async (e) => {
+    console.error(e);
+    await prisma.$disconnect();
+    process.exit(1);
+}).finally(async () => {
+    await prisma.$disconnect();
+});

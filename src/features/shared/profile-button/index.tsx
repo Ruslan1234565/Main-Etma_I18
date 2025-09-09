@@ -1,13 +1,12 @@
 import { Button } from "@/components/ui/button";
+
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 import { Sidebar } from "../sidebar";
-import { useTranslations } from "next-intl";
 
 export default function ProfileButton() {
   const session = useSession();
-  const t = useTranslations("navbar");
   return (
     <>
       {session.status === "authenticated" ? (
@@ -28,7 +27,7 @@ export default function ProfileButton() {
       ) : (
         <Link href="/auth/signin">
           <Button className="bg-black text-white min-w-[64px] h-[23px] rounded-none cursor-pointer">
-            <span className="text-[10px] tracking-[1.68px]">{t("login")}</span>
+            <span className="text-[10px] tracking-[1.68px]">LOGIN</span>
           </Button>
         </Link>
       )}

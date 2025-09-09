@@ -2,15 +2,16 @@
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
-import { Link } from "@/i18n/navigation";
+import Link from "next/link";
 
 interface HeroProps {
+  title: string;
+  description?: string;
   image: string | StaticImageData;
 }
 
-export default function Hero({ image }: HeroProps) {
+export default function Hero({ title, description, image }: HeroProps) {
   const t = useTranslations("main.hero");
-  
   return (
     <div className="flex flex-col items-center justify-center relative w-full h-[100vh]">
       <Image
@@ -20,9 +21,9 @@ export default function Hero({ image }: HeroProps) {
       />
       <div className="flex flex-col items-center justify-center z-10 gap-[60px]">
         <div className="flex flex-col gap-[33px] justify-center items-center">
-          <h1 className="text-7xl text-white">{t("title")}</h1>
+          <h1 className="text-7xl text-white">{title}</h1>
           <p className="text-lg text-white max-w-[500px] text-center">
-            {t("description")}
+            {description}
           </p>
         </div>
         <div className="flex gap-[20px]">

@@ -1,21 +1,33 @@
 import { NextRequest, NextResponse } from "next/server";
 import createIntlMiddleware from "next-intl/middleware";
+
 import { getToken } from "next-auth/jwt";
-import { routing } from "./i18n/routing";
+import { defaultLocale, Locale, locales } from "./i18n/locales";
 
 const authPages = ["/auth/signin", "/auth/signup"];
 const protectedPages = ["/dashboard"];
 
-const intlMiddleware = createIntlMiddleware(routing);
+const intlMiddleWare = createIntlMiddleware({
+    locales: locales,
+    defaultLocale: defaultLocale,
+    localeDetection: true,
+    localePrefix: "always",
+})
 
 export default async function middleware(req: NextRequest) {
-    const pathname = req.nextUrl.pathname;
-    
-    const pathnameSegments = pathname.split("/").filter(Boolean);
-    const locale = pathnameSegments[0];
-    
-    if (routing.locales.includes(locale as (typeof routing.locales)[number])) {
-        const pathWithoutLocale = `/${pathnameSegments.slice(1).join("/")}`;
+    const pathName = req.nextUrl.pathname;
+
+    const pathnameSeqment = pathName.split("/").filter(Boolean);
+    const locale = pathnameSeqment[0];
+
+    const isValidLocale = locales.includes(locale as Locale);
+
+    if (!isValidLocale && pathnameSeqment[0] !== "") {
+        return NextResponse.redirect(new URL(`/${defaultLocale}${pathName}`, req.url));
+    }
+
+    if (isValidLocale) {
+        const pathWithoutLocale = `/${pathnameSeqment.slice(1).join("/")}`;
         const isAuthPage = authPages.some(page => pathWithoutLocale.startsWith(page));
         const isProtectedPage = protectedPages.some(page => pathWithoutLocale.startsWith(page));
 
@@ -33,7 +45,8 @@ export default async function middleware(req: NextRequest) {
         }
     }
 
-    return intlMiddleware(req);
+
+    return intlMiddleWare(req);
 }
 
 export const config = {

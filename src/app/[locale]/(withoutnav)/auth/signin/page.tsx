@@ -12,31 +12,29 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { AuthProps } from "@/features/interface/auth-props";
+
 import { signIn, useSession } from "next-auth/react";
-import { Link } from "@/i18n/navigation";
-import { useRouter } from "@/i18n/navigation";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { signInSchema } from "../schema";
-import { useTranslations } from "next-intl";
+import { SignInSchema, signInSchema } from "../schema";
 
 export default function SignIn() {
   const session = useSession();
   const router = useRouter();
-  const t = useTranslations("auth.signin");
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<AuthProps>({
+  } = useForm<SignInSchema>({
     resolver: zodResolver(signInSchema),
   });
 
   console.log(session);
 
-  const onSubmit = async (data: AuthProps) => {
+  const onSubmit = async (data: SignInSchema) => {
     try {
       const response = await fetch("/api/users");
       const users = await response.json();
@@ -48,7 +46,8 @@ export default function SignIn() {
       const signInResult = await signIn("credentials", {
         email: data.email,
         password: data.password,
-        redirect: false,
+        redirect: true,
+        redirectTo: "/dashboard",
       });
 
       if (signInResult?.error) {
@@ -66,13 +65,13 @@ export default function SignIn() {
     <div className="min-h-screen flex items-center justify-center">
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle>{t("title")}</CardTitle>
+          <CardTitle>Login to your account</CardTitle>
           <CardDescription>
-            {t("subtitle")}
+            Enter your email below to login to your account
           </CardDescription>
           <CardAction>
             <Link href="/auth/signup">
-              <Button variant="link">{t("signup_link")}</Button>
+              <Button variant="link">Sign Up</Button>
             </Link>
           </CardAction>
         </CardHeader>
@@ -80,7 +79,7 @@ export default function SignIn() {
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
-                <Label htmlFor="email">{t("email")}</Label>
+                <Label htmlFor="email">Email</Label>
                 <Input
                   {...register("email")}
                   id="email"
@@ -94,12 +93,12 @@ export default function SignIn() {
               </div>
               <div className="grid gap-2">
                 <div className="flex items-center">
-                  <Label htmlFor="password">{t("password")}</Label>
+                  <Label htmlFor="password">Password</Label>
                   <a
                     href="#"
                     className="ml-auto inline-block text-sm underline-offset-4 hover:underline"
                   >
-                    {t("forgot_password")}
+                    Forgot your password?
                   </a>
                 </div>
                 <Input
@@ -115,7 +114,7 @@ export default function SignIn() {
               </div>
             </div>
             <Button type="submit" className="w-full mt-4 cursor-pointer">
-              {t("submit")}
+              Login
             </Button>
           </form>
         </CardContent>
@@ -125,14 +124,14 @@ export default function SignIn() {
             className="w-full"
             onClick={() => signIn("github", { callbackUrl: "/" })}
           >
-            {t("github_login")}
+            Login with Github
           </Button>
           <Button
             variant="outline"
             className="w-full"
             onClick={() => signIn("google", { callbackUrl: "/" })}
           >
-            {t("google_login")}
+            Login with Google
           </Button>
         </CardFooter>
       </Card>

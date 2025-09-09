@@ -4,20 +4,33 @@ generator client {
 
 datasource db {
     provider  = "postgresql"
-    url       = env("DATABASE_URL")
-    directUrl = env("POSTGRES_URL_NON_POOLING")
+    url       = env("DATABASE_URL_UNPOOLED")
+    directUrl = env("DATABASE_URL_UNPOOLED")
 }
 
 model User {
     id Int @id @default(autoincrement())
 
     name     String
-    email    String @unique
+    email    String  @unique
     password String
-    role     String @default("User")
+    role     String  @default("user")
+    verified Boolean @default(false)
+    isActive Boolean @default(true)
+
+    verificationCode VerificationCode?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
+}
+
+model VerificationCode {
+    id        Int      @id @default(autoincrement())
+    code      String
+    createdAt DateTime @default(now())
+
+    userId Int  @unique
+    user   User @relation(fields: [userId], references: [id])
 }
 
 model Product {
@@ -30,4 +43,14 @@ model Product {
     image       String
     createdAt   DateTime @default(now())
     updatedAt   DateTime
+}
+
+model Review {
+    id Int @id @default(autoincrement())
+
+    content String
+    rating  String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }

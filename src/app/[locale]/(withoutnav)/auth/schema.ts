@@ -1,6 +1,8 @@
 import { z } from "zod";
 
-export const passwordSchema = z.string().min(8).max(18);
+export const passwordSchema = z.string()
+    .min(8, { message: 'Password must be at least 8 characters' })
+    .max(14, { message: 'Password must be no more than 14 characters' });
 
 export const signInSchema = z.object({
   email: z.string().email({message: "Invalid email address"}),
