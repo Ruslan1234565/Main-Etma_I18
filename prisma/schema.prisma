@@ -1,0 +1,56 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("DATABASE_URL_UNPOOLED")
+    directUrl = env("DATABASE_URL_UNPOOLED")
+}
+
+model User {
+    id Int @id @default(autoincrement())
+
+    name     String
+    email    String  @unique
+    password String
+    role     String  @default("user")
+    verified Boolean @default(false)
+    isActive Boolean @default(true)
+
+    verificationCode VerificationCode?
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}
+
+model VerificationCode {
+    id        Int      @id @default(autoincrement())
+    code      String
+    createdAt DateTime @default(now())
+
+    userId Int  @unique
+    user   User @relation(fields: [userId], references: [id])
+}
+
+model Product {
+    id          Int      @id @default(autoincrement())
+    name        String
+    country     String
+    description String
+    rating      Float
+    price       Decimal  @db.Decimal(10, 2)
+    image       String
+    createdAt   DateTime @default(now())
+    updatedAt   DateTime
+}
+
+model Review {
+    id Int @id @default(autoincrement())
+
+    content String
+    rating  String
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+}

@@ -1,0 +1,157 @@
+    {
+        "navbar": {
+            "suplement": "SUPPLEMENT",
+            "laser": "LASER",
+            "reviews": "REVIEWS",
+            "journal": "JOURNAL",
+            "about": "ABOUT",
+            "help_support": "HELP & SUPPORT",
+            "activate": "ACTIVATE",
+            "account": "ACCOUNT"
+        },
+        "main": {
+            "hero": {
+                "title": "THE FUTURE OF WELLNESS.",
+                "description": "The perfect balance of science, nature and technology. Prepare to look and feel your absolute best.",
+                "suplement": "SUPPLEMENT",
+                "laser": "LASER",
+                "innovation": "Wellness innovation at its scientific best."
+            },
+            "discover": {
+                "supplement": {
+                    "title": "Supplement.",
+                    "subtitle1": "Nine powerful ingredients.",
+                    "subtitle2": "One ultimate formula.",
+                    "discover": "Discover",
+                    "buy": "Buy"
+                },
+                "laser": {
+                    "title": "Laser.",
+                    "subtitle1": "Ultimate skin regeneration.",
+                    "subtitle2": "A new dawn for beauty.",
+                    "discover": "Discover",
+                    "buy": "Buy"
+                }
+            },
+            "banner": {
+                "title": "THE QUEST FOR BETTER.",
+                "description": "At LYMA, we're always searching for the perfect balance of science, nature and technology. Every LYMA product has been designed to work together. We know that when we discover the best, you'll discover yours."
+            },
+            "founder": {
+                "title": "Meet our founder",
+                "description": "Lucy's story is one you really need to read; it changed an industry forever.",
+                "readMore": "READ MORE"
+            }
+        },
+        "dashboard": {
+            "reviews": {
+                "title": "Dashboard Reviews",
+                "addNewReview": "Add New Review",
+                "editReview": "Edit Review",
+                "content": "Content",
+                "contentPlaceholder": "Enter review content",
+                "rating": "Rating (1-5)",
+                "createReview": "Create Review",
+                "updateReview": "Update Review",
+                "cancel": "Cancel",
+                "edit": "Edit",
+                "delete": "Delete",
+                "loading": "Loading...",
+                "existingReviews": "Existing Reviews",
+                "noReviews": "No reviews found. Create your first review above!",
+                "created": "Created:",
+                "errors": {
+                    "failedToLoad": "Failed to load reviews. Please try again.",
+                    "failedToDelete": "Failed to delete review. Please try again.",
+                    "failedToSave": "Failed to save review. Please try again."
+                },
+                "success": {
+                    "deleted": "Review deleted successfully!",
+                    "created": "Review created successfully!",
+                    "updated": "Review updated successfully!"
+                }
+            }
+        },
+        "reviews": {
+            "title": "Reviews",
+            "loading": "Loading reviews...",
+            "noReviews": "No reviews found",
+            "reviewNumber": "Review #",
+            "loadingReview": "Loading review...",
+            "reviewNotFound": "Review not found",
+            "failedToFetch": "Failed to fetch review",
+            "failedToLoad": "Failed to load review",
+            "goBack": "Go Back",
+            "backToReviews": "Back to Reviews",
+            "reviewContent": "Review Content:",
+            "created": "Created:",
+            "validation": {
+                "contentRequired": "Content is required",
+                "ratingMin": "Rating must be at least 1",
+                "ratingMax": "Rating must be at most 5"
+            }
+        },
+        "footer": {
+            "sections": {
+                "supplement": "SUPPLEMENT",
+                "lymaLaser": "LYMA LASER",
+                "about": "ABOUT",
+                "account": "ACCOUNT",
+                "newsletter": "NEWSLETTER"
+            },
+            "supplement": {
+                "benefits": "Benefits",
+                "formula": "Formula",
+                "immunity": "Immunity",
+                "journal": "Journal",
+                "reviews": "Reviews",
+                "buy": "Buy"
+            },
+            "laser": {
+                "lymaLaser": "LYMA Laser",
+                "activeMist": "Active Mist",
+                "primingSerum": "Priming Serum",
+                "technology": "Technology",
+                "results": "Results",
+                "journal": "Journal",
+                "reviews": "Reviews",
+                "buy": "Buy"
+            },
+            "about": {
+                "about": "About",
+                "journal": "Journal",
+                "faqs": "FAQs",
+                "contact": "Contact",
+                "terms": "Terms",
+                "privacy": "Privacy",
+                "warranty": "Warranty"
+            },
+            "account": {
+                "activate": "Activate",
+                "mySubscription": "My subscription",
+                "addExtras": "Add extras",
+                "myOrders": "My orders",
+                "accountDetails": "Account details",
+                "paymentMethod": "Payment method",
+                "loginDetails": "Login details"
+            },
+            "newsletter": {
+                "title": "NEWSLETTER",
+                "description": "Subscribe to our newsletter.",
+                "placeholder": "LYMA newsletter",
+                "signUp": "SIGN UP"
+            }
+        },
+        "pages": {
+            "about": {
+                "title": "About Us",
+                "content": "Hello World"
+            },
+            "laser": {
+                "content": "Laser is a very good boy"
+            },
+            "supplement": {
+                "content": "Supplement"
+            }
+        }
+    }
